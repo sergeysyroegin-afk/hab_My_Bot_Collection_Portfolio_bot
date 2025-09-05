@@ -203,11 +203,11 @@ h1 {
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 20px 30px;
+    padding: 12px 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Кнопки прижаты к правому краю */
     align-items: center;
-    margin: 20px auto;
+    margin: 10px auto;
     transition: all 0.3s ease;
 }
 
@@ -216,37 +216,24 @@ h1 {
     box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
 }
 
-.modern-header .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #3a3a3a;
-    letter-spacing: -0.5px;
-}
-
-.modern-header .logo span {
-    color: #4f46e5;
-}
-
 .header-buttons {
     display: flex;
     gap: 12px;
 }
 
 .btn {
-    padding: 12px 24px;
+    width: 40px; /* Фиксированная ширина для квадратных кнопок */
+    height: 40px; /* Фиксированная высота для квадратных кнопок */
     border: none;
     border-radius: 12px;
-    font-size: 14px;
-    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    justify-content: center;
     text-decoration: none;
     color: white;
+    padding: 0; /* Убраны внутренние отступы */
 }
 
 .btn-back {
@@ -278,25 +265,25 @@ h1 {
 }
 
 .btn svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
 }
 
-/* Адаптивность для мобильных устройств */
+/* Адаптивность */
 @media (max-width: 480px) {
     .modern-header {
-        padding: 12px 15px; /* Уменьшены боковые отступы */
-        justify-content: space-between; /* Сохраняем пространство между логотипом и кнопками */
-    }
-
-    .header-buttons {
-  
-        margin: 0;
+        padding: 12px 15px;
     }
 
     .btn {
-        padding: 8px 16px;
-        font-size: 13px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .btn svg {
+        width: 16px;
+        height: 16px;
     }
 }
+
 
