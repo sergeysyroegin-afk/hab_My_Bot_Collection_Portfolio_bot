@@ -282,23 +282,21 @@ h1 {
     height: 16px;
 }
 
-/* Адаптивность */
+/* Адаптивность для мобильных устройств */
 @media (max-width: 480px) {
     .modern-header {
-        flex-direction: column;
-        padding: 12px;
+        padding: 12px 15px; /* Уменьшены боковые отступы */
+        justify-content: space-between; /* Сохраняем пространство между логотипом и кнопками */
     }
 
     .header-buttons {
-        margin-top: 12px;
-        width: 100%;
-        justify-content: space-between;
+  
+        margin: 0;
     }
 
     .btn {
-        flex: 1;
-        justify-content: center;
-        padding: 10px 16px;
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }
 
