@@ -290,7 +290,7 @@ h1 {
     }
 
     .header-buttons {
-        margin-top: 15px;
+        margin-top: 12px;
         width: 100%;
         justify-content: space-between;
     }
@@ -301,3 +301,4 @@ h1 {
         padding: 10px 16px;
     }
 }
+
