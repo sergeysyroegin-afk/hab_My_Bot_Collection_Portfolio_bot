@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Не пропусти фрукт!</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Подключаем Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- Подключаем звуки -->
+  <audio id="pop-sound" src="assets/pop.mp3" preload="auto"></audio>
+  <audio id="error-sound" src="assets/error.mp3" preload="auto"></audio>
+  <audio id="level-up-sound" src="assets/level-up.mp3" preload="auto"></audio>
+</head>
+<body>
+ 
+  <!-- Экран старта -->
+  <div id="start-screen" class="screen"> 
+    <h1>🍎 Не пропусти фрукт!</h1>
+    <p>Лови фрукты, избегай бомб!</p>
+    <button id="start-button">Начать игру</button>
+  </div>
+
+  <!-- Игровой экран -->
+  <div id="game-screen" class="screen hidden">
+    <div id="score">Очки: 0</div>
+    
+    <!-- Блок: жизни + кнопка звука -->
+	<div id="controls">
+	  <div id="lives">❤️❤️❤️</div>
+	  <div id="level-display">LVL 1</div>
+	  <button id="sound-toggle" title="Выключить звук">🔊</button>
+	</div>
+
+    <!-- Полоса сложности -->
+    <div id="intensity-bar">
+      <div id="intensity-fill"></div>
+    </div>
+
+    <!-- Игровая зона -->
+    <div id="game-area"></div>
+  </div>
+
+  <!-- Экран окончания игры -->
+  <div id="end-screen" class="screen hidden">
+    <h1>Игра окончена!</h1>
+    <p id="final-score">Ты собрал: 0 фруктов</p>
+    <p id="record">Рекорд: 0</p>
+    <button id="restart-button">Играть снова</button>
+  </div>
+
+  <!-- Подключаем основной скрипт -->
+  <script src="script.js"></script>
+</body>
+</html>

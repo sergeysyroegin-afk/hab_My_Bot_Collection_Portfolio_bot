@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Centr</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <!-- Верхняя панель -->
+  <header class="header">
+    
+	<a href="../index.html" class="back-button"></a>
+    <h1 class="logo">Game Centr</h1>
+    <button id="theme-toggle" class="theme-button" aria-label="Сменить тему">🌞</button>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="main">
+    <!-- Профиль пользователя -->
+    <section class="user-profile">
+	<img 
+	  id="user-avatar" 
+	  class="avatar" 
+	  src="default-avatar.png" 
+	  alt="Аватар пользователя"
+	/>
+      <div class="user-greeting">
+        <p id="user-name">Привет, Пользователь!</p>
+        <p class="subtitle">Готов к играм? Выбери свою!</p>
+      </div>
+    </section>
+
+    <!-- Сетка игр -->
+    <section class="games-grid">
+      <a href="games/fruits-game/index.html" class="game-card">
+        <div class="game-icon">🍌</div>
+        <p>Поймай, если сможешь</p>
+      </a>
+      <a href="games/quiz/index.html" class="game-card">
+        <div class="game-icon">🧩</div>
+        <p>Итальянские брейнрот животные</p>
+      </a><!--
+      <a href="games/snake/" class="game-card">
+        <div class="game-icon">🐍</div>
+        <p>Змейка</p>
+      </a>
+      <a href="games/darts/" class="game-card">
+        <div class="game-icon">🎯</div>
+        <p>Бросок</p>
+      </a>
+      <a href="games/words/" class="game-card">
+        <div class="game-icon">🔤</div>
+        <p>Слова</p>
+      </a>
+      <a href="games/logic/" class="game-card">
+        <div class="game-icon">🧠</div>
+        <p>Логика</p>
+      </a>-->
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <p>Сделано с ❤️ в Telegram</p>
+    <p class="version">v1.0</p>
+  </footer>
+
+  <!-- Скрипты -->
+  <script src="script.js"></script>
+</body>
+</html>

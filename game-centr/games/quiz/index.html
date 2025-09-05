@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мем-викторина | Game Centr</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="game-body">
+  <header class="game-header">
+    <a href="../../index.html" class="back-button">← Назад</a>
+    <h2>🧩 Мем-викторина</h2>
+    <div class="score-badge">
+      Правильно: <span id="score">0</span> из <span id="total">0</span>
+    </div>
+    <div id="timer" class="timer">10</div>
+  </header>
+
+  <main class="game-content">
+    <div id="question-container" class="question-container">
+      <img id="meme-preview" class="meme-preview" alt="Фрагмент мема" />
+
+      <div id="options" class="options-grid">
+        <!-- Варианты ответов добавляются через JS -->
+      </div>
+
+      <button id="next-btn" class="btn-primary" disabled>Следующий</button>
+    </div>
+
+    <div id="result-screen" class="result-screen" style="display: none;">
+      <h3 id="result-message"></h3>
+      <img id="full-meme" class="full-meme" alt="Полный мем" />
+      <button id="next-question-btn" class="btn-primary">Следующий вопрос</button>
+    </div>
+  </main>
+  
+	<!-- Экран окончания игры -->
+	<div id="end-screen" class="end-screen" style="display: none;">
+	  <h3>Игра окончена!</h3>
+	  <p>Ты угадал <strong><span id="final-score">0</span></strong> из <span id="total-questions">0</span> мемов!</p>
+	  <button id="play-again-btn" class="btn-primary">Играть снова</button>
+	</div>
+  <script src="../../script.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

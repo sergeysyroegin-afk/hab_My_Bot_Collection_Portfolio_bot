@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио — Сергей Вельский</title>
+  <meta name="description" content="Портфолио Python-разработчика, создателя Telegram-ботов и AI-проектов">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+  <div class="container">
+
+    <!-- Панель темы — слева -->
+    <div class="theme-panel">
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Переключить тему">
+        <span id="theme-icon">☀️</span>
+      </button>
+    </div>
+
+    <!-- Панель языка — справа -->
+    <div class="language-panel">
+      <div class="language-select">
+        <label for="language">🌍</label>
+        <select id="language" aria-label="Выберите язык">
+          <option value="index.html" selected>Ру</option>
+          <option value="index_en.html">En</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Профиль -->
+    <div class="profile-wrapper" id="profile">
+      <img src="assets/your-avatar.jpg" alt="Аватар Сергея Вельского" class="avatar" loading="lazy" id="avatar">
+      <h1>Сергей Вельский</h1>
+      <p class="description">"Python Developer | Telegram Bot Creator | AI Enthusiast"</p>
+      <p class="welcome" id="welcome">Добро пожаловать!</p>
+    </div>
+
+    <!-- Главное меню -->
+    <div class="menu-grid">
+      <a href="game-centr/index.html" class="menu-item games" id="menu1">
+        <div class="icon">🎮</div>
+        <h3>Игры</h3>
+        <p>Набор мини игр для Telegram</p>
+      </a>
+
+      <a href="My_Bot_Collection/index.html" class="menu-item channels" id="menu2">
+        <div class="icon">📡</div>
+        <h3>Каналы</h3>
+        <p>AI-арт, вдохновение, Python и Roblox</p>
+      </a>
+
+      <a href="#" class="menu-item bots" id="menu3">
+        <div class="icon">🤖</div>
+        <h3>Боты</h3>
+        <p>Автоматизация, генерация, обучение</p>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио — Сергей Вельский</title>
+    <meta name="description" content="Портфолио Python-разработчика, создателя Telegram-ботов и AI-проектов">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body class="light-theme">
+    <div class="container">
+		<!-- Панель темы — слева вверху -->
+		<div class="theme-panel">
+		  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Переключить тему">
+			<span id="theme-icon">☀️</span>
+		  </button>
+		</div>
+
+		<!-- Панель языка — справа вверху -->
+		<div class="language-panel">
+		  <div class="language-select">
+			<label for="language">🌍</label>
+			<select id="language" aria-label="Выберите язык">
+			  <option value="index.html" selected>Ру</option>
+			  <option value="index_en.html">En</option>
+			</select>
+		  </div>
+		</div>
+
+        <!-- Профиль -->
+        <div class="profile-wrapper" id="profile">
+            <img src="assets/your-avatar.jpg" alt="Аватар Сергея Вельского" class="avatar" loading="lazy" id="avatar">
+            <h1>Сергей Вельский</h1>
+            <p class="description">"Python Developer | Telegram Bot Creator | AI Enthusiast"</p>
+            <p class="welcome" id="welcome">Добро пожаловать!</p>
+        </div>
+
+        <!-- Список ботов -->
+        <div class="bot-list">
+            <article class="bot-item" id="bot1">
+                <div class="bot-item-screenshot">
+                    <img src="assets/The_AI_Art_Anarchy.png" alt="Пример арта из канала The AI Art Anarchy" loading="lazy">
+                </div>
+                <div class="bot-item-description">
+                    <h2>📜 The AI Art Anarchy</h2>
+                    <p>Ежедневная доза вдохновения от Искусственного Интеллекта! Несколько раз в день на основе анализа актуальных запросов нейросети генерируют уникальные арты. ИИ сам выбирает время, формирует запрос и генерирует изображение. Подпишись и погрузись в мир машинного творчества!<br><i>Каналом управляет автономный бот.</i>👻</p>
+                    <a href="#" data-url="https://t.me/The_AI_Art_Anarchy" class="tg-link">👉 Перейти на канал</a>
+                </div>
+            </article>
+
+            <article class="bot-item" id="bot2">
+                <div class="bot-item-screenshot">
+                    <img src="assets/Fanny_art.png" alt="Пример арта из канала Funny art images" loading="lazy">
+                </div>
+                <div class="bot-item-description">
+                    <h2>📜 Funny art images</h2>
+                    <p>Этот канал генерирует тему случайным образом, а затем ИИ находит лучшие картинки по ней. Каждый день новая подборка.</p>
+                    <a href="#" data-url="https://t.me/Fanny_art" class="tg-link">👉 Перейти на канал</a>
+                </div>
+            </article>
+
+            <article class="bot-item" id="bot3">
+                <div class="bot-item-screenshot">
+                    <img src="assets/python_art.png" alt="Пример проекта из канала Python Git" loading="lazy">
+                </div>
+                <div class="bot-item-description">
+                    <h2>📜 Python Git</h2>
+                    <p>Маленькие проекты на Python с объяснением кода — пополняемая подборка для обучения и вдохновения.</p>
+                    <a href="#" data-url="https://t.me/python_Git" class="tg-link">👉 Перейти на канал</a>
+                </div>
+            </article>
+
+            <article class="bot-item" id="bot4">
+                <div class="bot-item-screenshot">
+                    <img src="assets/roblox_art.png" alt="Пример скриптов из канала Roblox Git" loading="lazy">
+                </div>
+                <div class="bot-item-description">
+                    <h2>📜 Roblox Git</h2>
+                    <p>Здесь ты найдешь лучшие Lua-скрипты для Roblox! Улучшай свою игру, создавай новые возможности и удивляй друзей. Подписывайся и будь в курсе свежих обновлений!</p>
+                    <a href="#" data-url="https://t.me/+f6UreQx9mYI5NGMy" class="tg-link">👉 Перейти на канал</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

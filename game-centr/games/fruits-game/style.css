@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f0f9ff;
+  color: #333;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Блок управления: жизни + звук */
+#controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#lives {
+  margin: 0;
+  color: #d32f2f;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#sound-toggle {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  background: white;
+  color: #333;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+#sound-toggle:hover {
+  border-color: #888;
+  transform: scale(1.1);
+}
+
+#sound-toggle.muted {
+  background: #ff5252;
+  color: white;
+  border-color: #c00;
+}
+
+#sound-toggle.muted:hover {
+  background: #e53935;
+  transform: scale(1.15);
+}
+
+/* Полоса сложности */
+#intensity-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  width: 200px;
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+#intensity-fill {
+  width: 0%;
+  height: 100%;
+  background: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+/* Игровое поле */
+#game-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  touch-action: manipulation;
+}
+
+/* Фрукты */
+.fruit {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  user-select: none;
+  z-index: 5;
+}
+
+/* Анимация исчезновения */
+@keyframes pop {
+  0% { transform: scale(1); opacity: 1; }
+  70% { transform: scale(1.5); opacity: 0.7; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.fruit.pop {
+  animation: pop 0.3s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Частицы взрыва */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.particle:nth-child(1) { background: #ff5252; }
+.particle:nth-child(2) { background: #ffeb3b; }
+.particle:nth-child(3) { background: #4caf50; }
+.particle:nth-child(4) { background: #2196f3; }
+.particle:nth-child(5) { background: #9c27b0; }

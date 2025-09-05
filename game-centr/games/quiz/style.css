@@ -1,0 +1,207 @@
+/* Общие стили игры */
+.game-body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  min-height: 100vh;
+}
+
+/* Шапка */
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-button {
+  font-size: 1.4rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.game-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Счётчик */
+.score-badge {
+  margin-left: auto;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Таймер */
+.timer {
+  width: 40px;
+  height: 40px;
+  background-color: #4cd964;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: pulse 1s infinite;
+}
+
+.timer.warning {
+  background-color: #ff9500;
+  animation: pulse 0.5s infinite;
+}
+
+.timer.danger {
+  background-color: #ff3b30;
+  animation: shake 0.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+}
+
+/* Основное содержимое */
+.game-content {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.question-container,
+.result-screen {
+  text-align: center;
+}
+
+.meme-preview {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #ddd;
+  margin-bottom: 20px;
+  border: 2px dashed var(--accent);
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  padding: 14px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.option-btn.selected {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.btn-primary {
+  padding: 12px 24px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #5100b8;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.full-meme {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  margin-top: 16px;
+  border: 2px solid var(--accent);
+}
+
+/* Адаптив */
+@media (max-width: 480px) {
+  .score-badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    min-width: 80px;
+  }
+
+  .timer {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .game-header h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Экран окончания игры */
+.end-screen {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.end-screen h3 {
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.end-screen p {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.end-screen strong {
+  color: var(--accent);
+  font-weight: 600;
+}
