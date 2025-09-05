@@ -193,3 +193,111 @@ h1 {
   text-decoration: underline;
 }
 
+/* шапка */
+.modern-header {
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+}
+
+.modern-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+}
+
+.modern-header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3a3a3a;
+    letter-spacing: -0.5px;
+}
+
+.modern-header .logo span {
+    color: #4f46e5;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-back {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-back:active {
+    transform: translateY(0);
+}
+
+.btn-home {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+.btn-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(240, 147, 251, 0.4);
+}
+
+.btn-home:active {
+    transform: translateY(0);
+}
+
+.btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .modern-header {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .header-buttons {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .btn {
+        flex: 1;
+        justify-content: center;
+        padding: 10px 16px;
+    }
+}
