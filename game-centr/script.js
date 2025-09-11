@@ -37,62 +37,39 @@ themeToggle.addEventListener("click", () => {
 });
 
 // ====================
-//   ЦВЕТ ПО ИНИЦИАЛУ
-// ====================
-
-function getInitialColor(char) {
-  const colors = [
-    "#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF", "#D9BAFF", "#FFB3B3", "#FFD1B3"
-  ];
-  const charCode = char.toUpperCase().charCodeAt(0);
-  return colors[charCode % colors.length];
-}
-
-// ====================
-//   АВАТАР И ПРИВЕТСТВИЕ
+//   ИМЯ ПОЛЬЗОВАТЕЛЯ ИЗ TELEGRAM
+//   Аватар остаётся стандартным
 // ====================
 
 document.addEventListener("DOMContentLoaded", () => {
   loadTheme();
 
-  const userAvatar = document.getElementById("user-avatar");
-  const userName = document.getElementById("user-name");
+  const userNameElement = document.getElementById("user-name");
 
-  // Всегда используем стандартное изображение как fallback
-  userAvatar.src = "default-avatar.png";
-  userAvatar.alt = "Аватар пользователя";
+  // Приветствие по умолчанию
+  let displayName = "Игрок";
 
   if (window.Telegram && Telegram.WebApp) {
     const user = Telegram.WebApp.initDataUnsafe.user;
 
     if (user) {
-      // Формируем имя
-      const displayName = user.username
-        ? `@${user.username}`
-        : user.first_name || "Игрок";
-
-      userName.textContent = `Привет, ${displayName}!`;
-      
-      // Убираем src, чтобы не мешал цветному кругу
-      userAvatar.removeAttribute("src");
-      userAvatar.textContent = initial;
-      userAvatar.style.background = getInitialColor(initial);
-      userAvatar.style.display = "flex";
-      userAvatar.style.alignItems = "center";
-      userAvatar.style.justifyContent = "center";
-      userAvatar.style.fontSize = "24px";
-      userAvatar.style.fontWeight = "bold";
-      userAvatar.style.color = "#fff";
-      userAvatar.style.objectFit = "none";
+      // Приоритет: username → first_name → fallback
+      if (user.username) {
+        displayName = `@${user.username}`;
+      } else if (user.first_name) {
+        displayName = user.first_name;
+      }
     }
-  } else {
-    // Режим тестирования
-    userName.textContent = "Привет, Игрок!";
   }
 
+  // Устанавливаем приветствие
+  userNameElement.textContent = `Привет, ${displayName}!`;
+
   // ====================
-  //   ИНТЕРАКТИВ С АВАТАРОМ
+  //   ИНТЕРАКТИВ С АВАТАРОМ (опционально)
   // ====================
+
+  const userAvatar = document.getElementById("user-avatar");
 
   // Вибрация
   function vibrate() {
@@ -101,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Звук через Web Audio API (без файла)
+  // Звук через Web Audio API
   function playPipSound() {
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -122,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Клик: анимация + вибрация + звук
+  // Клик по аватару — анимация + вибрация + звук
   userAvatar.addEventListener("click", () => {
     userAvatar.classList.add("jiggle");
     setTimeout(() => {
@@ -132,5 +109,4 @@ document.addEventListener("DOMContentLoaded", () => {
     vibrate();
     playPipSound();
   });
-
 });
