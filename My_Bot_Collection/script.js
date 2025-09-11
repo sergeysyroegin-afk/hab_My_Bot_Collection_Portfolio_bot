@@ -1,6 +1,6 @@
 /**
  * script.js — Портфолио Сергея Вельского
- * Telegram Mini App: тема, язык, приветствие, открытие каналов
+ * Telegram Mini App: тема, приветствие, анимации, навигация
  */
 
 // === 1. Приветствие по имени ===
@@ -15,7 +15,7 @@ function initWelcome() {
   welcomeEl.textContent = `Добро пожаловать, ${firstName}!`;
 }
 
-// === 2. Переключатель темы с иконками и haptics ===
+// === 2. Переключатель темы ===
 function initThemeToggle() {
   const btn = document.getElementById('theme-toggle');
   const icon = document.getElementById('theme-icon');
@@ -52,85 +52,79 @@ function initThemeToggle() {
   });
 }
 
-// === Анимация аватара с заменой изображения ===
+// Вибрация
+function vibrate() {
+if ("vibrate" in navigator) {
+  navigator.vibrate(50);
+}
+}
+// Звук через Web Audio API
+function playPipSound() {
+try {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = "square";
+  osc.frequency.value = 700;
+  gain.gain.value = 0.2;
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime + 0.15);
+} catch (e) {
+  console.warn("Не удалось воспроизвести звук:", e);
+}
+}
+  
+// === 3. Анимация аватара ===
 function initAvatarAnimation() {
   const avatar = document.getElementById('avatar');
   if (!avatar) return;
 
-  // Пути к изображениям
-  const img1 = 'assets/your-avatar.jpg';        // Основное
-  const img2 = 'assets/your-avatar-alt.jpg';    // Альтернативное
-
-  let isAlt = false;
+  let isAnimated = false;
 
   avatar.addEventListener('click', () => {
-    // Haptic Feedback
     if (window.Telegram?.WebApp?.HapticFeedback) {
       Telegram.WebApp.HapticFeedback.impactOccurred('medium');
     }
 
-    // Анимация поворота
-    avatar.style.transition = 'transform 0.6s ease';
-    avatar.style.transform = 'rotate(360deg)';
-
-    setTimeout(() => {
-      avatar.style.transform = 'rotate(0deg)';
-    }, 600);
-
-    // Смена изображения
-    if (!isAlt) {
-      avatar.src = img2;
+    if (!isAnimated) {
+      avatar.classList.remove('normal');
+      avatar.classList.add('animate');      
     } else {
-      avatar.src = img1;
+      avatar.classList.remove('animate');
+      avatar.classList.add('normal');
     }
-
-    isAlt = !isAlt;
-  });
-
-  // Поддержка клавиатуры
-  avatar.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      avatar.click();
-    }
+    isAnimated = !isAnimated;
+	vibrate();
+    playPipSound();
   });
 }
 
-// === 4. Открытие ссылок: в Telegram, если возможно, иначе — в браузере ===
-function initTgLinks() {
-  document.querySelectorAll('.tg-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const url = link.getAttribute('data-url');
+// === 4. Анимация появления меню ===
+function initMenuAnimations() {
+  const menuItems = document.querySelectorAll('.menu-item');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 150);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+  );
 
-      if (window.Telegram?.WebApp) {
-        // Если в Telegram — открываем внутри приложения
-        Telegram.WebApp.openTelegramLink(url);
-      } else {
-        // Если в браузере — открываем в новой вкладке
-        window.open(url, '_blank');
-      }
-    });
-  });
+  menuItems.forEach(item => observer.observe(item));
 }
 
-// === 5. Анимации появления ===
-function initAnimations() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.bot-item').forEach(item => observer.observe(item));
-  const profile = document.getElementById('profile');
-  if (profile) observer.observe(profile);
-}
-
-// === 6. Язык ===
+// === 5. Язык ===
 function initLanguageSelector() {
   const select = document.getElementById('language');
   if (!select) return;
@@ -144,7 +138,7 @@ function initLanguageSelector() {
   });
 }
 
-// === 7. Telegram WebApp ===
+// === 6. Telegram WebApp ===
 function initTelegram() {
   if (window.Telegram?.WebApp) {
     Telegram.WebApp.ready();
@@ -158,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initWelcome();
   initThemeToggle();
   initAvatarAnimation();
-  initTgLinks();
-  initAnimations();
+  initMenuAnimations();
   initLanguageSelector();
 });
