@@ -18,15 +18,25 @@ let autoClickInterval = null;
 // Пороги для смены изображения
 const capyLevels = [
   { threshold: 0,   src: "assets/capybara1.png",   desc: "Милый новичок" },
-  { threshold: 10,  src: "assets/capybara2.png",   desc: "Уверенный в себе" },
-  { threshold: 50,  src: "assets/capybara3.png",   desc: "В очках и с планами" },
-  { threshold: 100, src: "assets/capybara4.png",   desc: "С бородой и мудростью" },
+  { threshold: 20,  src: "assets/capybara2.png",   desc: "Уверенный в себе" },
+  { threshold: 70,  src: "assets/capybara3.png",   desc: "В очках и с планами" },
+  { threshold: 120, src: "assets/capybara4.png",   desc: "С бородой и мудростью" },
   { threshold: 500, src: "assets/capybara5.png",   desc: "Капибара-босс" }
 ];
 
 // Стоимость улучшений
 let upgradeClickCost = 10;
 let autoClickCost = 50;
+
+// ====================
+//   ВИБРАЦИЯ (на мобильных)
+// ====================
+
+function vibrate() {
+  if ("vibrate" in navigator) {
+    navigator.vibrate(50); // 50 мс вибрации
+  }
+}
 
 // Звук клика
 function playClickSound() {
@@ -156,7 +166,7 @@ clickBtn.addEventListener("click", () => {
   score += clickPower;
   clicks++;
   playClickSound();
-
+  vibrate();
   showFloatingText();
   createParticles();
 
