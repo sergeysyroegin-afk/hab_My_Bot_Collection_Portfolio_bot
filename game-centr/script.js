@@ -49,7 +49,7 @@ function getInitialColor(char) {
 }
 
 // ====================
-//   АВАТАР И ПРИВЕТСТВИЕ (с инициалом, но без фото из Telegram)
+//   АВАТАР И ПРИВЕТСТВИЕ
 // ====================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -72,11 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : user.first_name || "Игрок";
 
       userName.textContent = `Привет, ${displayName}!`;
-
-      // Получаем первую букву для инициала
-      const firstName = user.first_name || user.username || "A";
-      const initial = firstName.charAt(0).toUpperCase();
-
+      
       // Убираем src, чтобы не мешал цветному кругу
       userAvatar.removeAttribute("src");
       userAvatar.textContent = initial;
@@ -136,4 +132,5 @@ document.addEventListener("DOMContentLoaded", () => {
     vibrate();
     playPipSound();
   });
+
 });
