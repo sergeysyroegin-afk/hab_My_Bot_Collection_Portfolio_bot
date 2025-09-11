@@ -9,24 +9,15 @@
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body class="light-theme">
-<header class="modern-header">
-    <div class="header-buttons">
-        <a href="#" class="btn btn-back">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-        </a>
-        <a href="#" class="btn btn-home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                <polyline points="9,22 9,12 15,12 15,22"/>
-            </svg>
-        </a>
-    </div>
-</header>
-    <div class="container">
-		<!-- Панель темы — слева вверху -->
-		<div class="theme-panel">
+    <div class="container">	
+		<!-- Панель управления — левый верхний угол -->
+		<div class="top-left-panel">
+		  <!-- Кнопка "Главная" -->
+		  <a href="../index.html" class="home-link" aria-label="Вернуться на главную">
+			🏠
+		  </a>
+
+		  <!-- Переключатель темы -->
 		  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Переключить тему">
 			<span id="theme-icon">☀️</span>
 		  </button>
@@ -102,7 +93,3 @@
     <script src="script.js" defer></script>
 </body>
 </html>
-
-
-
-

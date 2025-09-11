@@ -1,0 +1,211 @@
+/* ==================== */
+/*   ОБЩИЕ СТИЛИ        */
+/* ==================== */
+
+.game-body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  min-height: 100vh;
+}
+
+/* ==================== */
+/*   ШАПКА              */
+/* ==================== */
+
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-button {
+  font-size: 1.4rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.game-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.score-badge {
+  margin-left: auto;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* ==================== */
+/*   ОСНОВНОЙ КОНТЕНТ    */
+/* ==================== */
+
+.game-content {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Счёт */
+.game-content p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+
+.game-content strong {
+  color: var(--text-primary);
+}
+
+/* ==================== */
+/*   КАПИБАРА           */
+/* ==================== */
+
+.capy-container {
+  position: relative;
+  margin: 30px 0;
+  cursor: default; /* Клик на кнопку, а не на изображение */
+  user-select: none;
+}
+
+.capy-img {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.capy-img:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== */
+/*   ВСПЛЫВАЮЩИЙ ТЕКСТ (+1) */
+/* ==================== */
+
+.floating-text {
+  position: absolute;
+  font-weight: bold;
+  color: #4CAF50;
+  font-size: 1.2rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.8s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.floating-text.show {
+  opacity: 1;
+  transform: translateY(-40px);
+}
+
+/* ==================== */
+/*   ЧАСТИЦЫ (ИСКРЫ)     */
+/* ==================== */
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 4;
+}
+
+.particle::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 87, 34, 0.6), transparent 70%);
+}
+
+/* ==================== */
+/*   КНОПКА КЛИКА        */
+/* ==================== */
+
+.click-btn {
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.click-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.click-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==================== */
+/*   УЛУЧШЕНИЯ           */
+/* ==================== */
+
+.upgrades {
+  margin-top: 30px;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upgrades h3 {
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.upgrade-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 10px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.upgrade-btn:hover {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.upgrade-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

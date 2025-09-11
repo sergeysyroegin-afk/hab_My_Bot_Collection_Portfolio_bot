@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кликер | Game Centr</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="game-body">
+  <header class="game-header">
+    <a href="../../index.html" class="back-button">← Назад</a>
+    <h2>🖱️ Кликер</h2>
+    <div class="score-badge">Очки: <span id="score">0</span></div>
+  </header>
+
+  <main class="game-content">
+    <!-- Счёт -->
+    <p>Кликов: <strong id="clicks">0</strong></p>
+
+    <!-- Капибара -->
+    <div class="capy-container">
+      <img id="capy-img" src="assets/capybara1.png" alt="Капибара" class="capy-img" />
+    </div>
+
+    <!-- Кнопка клика -->
+    <button id="click-btn" class="click-btn">Клик!</button>
+
+    <!-- Улучшения -->
+    <div class="upgrades">
+      <h3>Улучшения</h3>
+      <button id="upgrade-click" class="upgrade-btn">
+        Увеличить клик (+1) — <span id="click-cost">10</span> очков
+      </button>
+      <button id="auto-click" class="upgrade-btn">
+        Автоклик (+1 в сек) — <span id="auto-cost">50</span> очков
+      </button>
+    </div>
+  </main>
+
+  <script src="../../script.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

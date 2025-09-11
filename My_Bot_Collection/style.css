@@ -193,97 +193,59 @@ h1 {
   text-decoration: underline;
 }
 
-/* шапка */
-.modern-header {
-    width: 100%;
-    max-width: 1200px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 30px;
-    display: flex;
-    justify-content: flex-end; /* Кнопки прижаты к правому краю */
-    align-items: center;
-    margin: 10px auto;
-    transition: all 0.3s ease;
+/* Панель в левом верхнем углу */
+.top-left-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 100;
 }
 
-.modern-header:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+/* Кнопка "Главная" */
+.home-link {
+  font-size: 20px;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.header-buttons {
-    display: flex;
-    gap: 12px;
+.home-link:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
 }
 
-.btn {
-    width: 40px; /* Фиксированная ширина для квадратных кнопок */
-    height: 40px; /* Фиксированная высота для квадратных кнопок */
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    padding: 0; /* Убраны внутренние отступы */
+.dark-theme .home-link:hover {
+  background-color: #333;
 }
 
-.btn-back {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+/* Переключатель темы */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-back:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(102, 126, 234, 0.4);
+.theme-toggle-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
 }
 
-.btn-back:active {
-    transform: translateY(0);
+.dark-theme .theme-toggle-btn:hover {
+  background-color: #333;
 }
-
-.btn-home {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
-}
-
-.btn-home:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(240, 147, 251, 0.4);
-}
-
-.btn-home:active {
-    transform: translateY(0);
-}
-
-.btn svg {
-    width: 18px;
-    height: 18px;
-}
-
-/* Адаптивность */
-@media (max-width: 480px) {
-    .modern-header {
-        padding: 12px 15px;
-    }
-
-    .btn {
-        width: 36px;
-        height: 36px;
-    }
-
-    .btn svg {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-
