@@ -65,7 +65,7 @@ try {
   const osc = ctx.createOscillator();
   const gain = ctx.createGain();
 
-  osc.type = "square";
+  osc.type = "sine";
   osc.frequency.value = 700;
   gain.gain.value = 0.2;
   gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
@@ -155,3 +155,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenuAnimations();
   initLanguageSelector();
 });
+
