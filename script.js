@@ -52,6 +52,33 @@ function initThemeToggle() {
   });
 }
 
+// Вибрация
+function vibrate() {
+if ("vibrate" in navigator) {
+  navigator.vibrate(50);
+}
+}
+// Звук через Web Audio API
+function playPipSound() {
+try {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = "square";
+  osc.frequency.value = 700;
+  gain.gain.value = 0.2;
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime + 0.15);
+} catch (e) {
+  console.warn("Не удалось воспроизвести звук:", e);
+}
+}
+  
 // === 3. Анимация аватара ===
 function initAvatarAnimation() {
   const avatar = document.getElementById('avatar');
@@ -72,6 +99,8 @@ function initAvatarAnimation() {
       avatar.classList.add('normal');
     }
     isAnimated = !isAnimated;
+	vibrate();
+    playPipSound();
   });
 }
 
